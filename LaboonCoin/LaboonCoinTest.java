@@ -59,5 +59,26 @@ public class LaboonCoinTest {
     }
 	    
     // TODO - PUT YOUR SIX TESTS HERE
-    
+  @Test
+  public void testHash1(){
+	String testString = "boo";
+	int properBooInt = 1428150834;
+	int testHash = _l.hash(testString);
+	assertEquals(testHash, properBooInt);
+  }
+	
+  @Test
+  public void testHash2(){
+	String testString = "";
+	int properNullInt = 0x00989680;
+	int testHash = _l.hash(testString);
+	assertEquals(testHash, properNullInt);
+  }
+  @Test
+  public void testHash3(){
+	String testString = "laboon";
+	int properLaboonInt = 0x4e4587d6;
+	int testHash = _l.hash(testString);
+	assertEquals(testHash, properLaboonInt);
+  }
 }
