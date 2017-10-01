@@ -85,8 +85,8 @@ public class LaboonCoinTest {
 
   @Test
   public void testValidHash1(){
-    int difficulty = 3;
-	int hash = 0x000999999;
+    int difficulty = 2;
+	int hash = 0x00989680;
 	boolean valid = _l.validHash(difficulty, hash);
 	assertTrue(valid);
   }
@@ -94,15 +94,15 @@ public class LaboonCoinTest {
   @Test
   public void testValidHash2(){
 	int difficulty = 2;
-	int hash = 0x000999999;
+	int hash = 1428150834;
 	boolean valid = _l.validHash(difficulty, hash);
 	assertFalse(valid); 
   }
   
   @Test
   public void testValidHash3(){
-	int difficulty = 9;
-	int hash = 0x000000000;
+	int difficulty = 5;
+	int hash = 2166;
 	boolean valid = _l.validHash(difficulty, hash);
 	assertTrue(valid);
   }
