@@ -105,21 +105,24 @@ public class LaboonCoin {
      * @return boolean - true if hash is valid for a block, false otherwise
      */
     
-    public boolean validHash(int difficulty, int hash) {
+    public static boolean validHash(int difficulty, int hash) {
 	// TODO - CHECK FOR VALID HASHES
-	String hash2 = Integer.toHexString(hash);
-	char[] hashCharArray = hash2.toCharArray();
+	String hashHex = String.format("%08x", hash);
+	char[] hashCharArray = hashHex.toCharArray();
 	boolean valid = true;
-		
-	for(int i = 0; i < difficulty; i++){
-		if(hashCharArray[i] == '0') valid = true;
-		else{
-			valid = false;
-			break;
+
+	if(difficulty == 0 && hashCharArray[0] == '0') return false;
+	else if(difficulty == 0 && hashCharArray[0] != '0') return true;
+	else{
+		for(int i = 0; i < difficulty; i++){
+			if(hashCharArray[i] == '0') valid = true;
+			else{
+				valid = false;
+				break;
+			}
 		}
-	}
-	    
-	return valid;
+		return valid;
+	  }
     }
 
     /**
