@@ -74,11 +74,36 @@ public class LaboonCoinTest {
 	int testHash = _l.hash(testString);
 	assertEquals(testHash, properNullInt);
   }
+  
   @Test
   public void testHash3(){
 	String testString = "laboon";
 	int properLaboonInt = 0x4e4587d6;
 	int testHash = _l.hash(testString);
 	assertEquals(testHash, properLaboonInt);
+  }
+
+  @Test
+  public void testValidHash1(){
+    int difficulty = 3;
+	int hash = 0x000999999;
+	boolean valid = _l.validHash(difficulty, hash);
+	assertTrue(valid);
+  }
+  
+  @Test
+  public void testValidHash2(){
+	int difficulty = 2;
+	int hash = 0x000999999;
+	boolean valid = _l.validHash(difficulty, hash);
+	assertFalse(valid); 
+  }
+  
+  @Test
+  public void testValidHash3(){
+	int difficulty = 9;
+	int hash = 0x000000000;
+	boolean valid = _l.validHash(difficulty, hash);
+	assertTrue(valid);
   }
 }
